@@ -3,29 +3,24 @@ import { Home } from 'pages/Home';
 import { About } from 'pages/About';
 import { Products } from 'pages/Products';
 import { ProductDetails } from 'pages/ProductDetails';
-import { Container, Header, Logo, Link } from './App.styled';
+import { SharedLayout } from './SharedLayout';
+import { Team } from './Team';
+import { Reviews } from './Reviews';
+import { Mission } from './Mission';
 
 export const App = () => {
   return (
-    <Container>
-      <Header>
-        <Logo>
-          <span role="img" aria-label="computer icon"></span> GoMerch Store
-        </Logo>
-      </Header>
-      <nav>
-        <Link to="/" end>
-          Home
-        </Link>
-        <Link to="/about">About</Link>
-        <Link to="/products">Products</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:productId" element={<ProductDetails />} />
-      </Routes>
-    </Container>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />}>
+          <Route path="mission" element={<Mission />} />
+          <Route path="team" element={<Team />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
+        <Route path="products" element={<Products />} />
+        <Route path="products/:id" element={<ProductDetails />} />
+      </Route>
+    </Routes>
   );
 };

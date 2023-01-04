@@ -8,7 +8,7 @@ export const ProductList = ({ products }) => {
         <CardWrapper key={product.id}>
           <Link to={`${product.id}`}>
             <img src="https:via.placeholder.com/200x100" alt="" />
-            <ProductName>{product.id}</ProductName>
+            <ProductName>{product.name}</ProductName>
           </Link>
         </CardWrapper>
       ))}

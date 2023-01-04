@@ -3,7 +3,7 @@ import { getProductById } from 'fakeAPI';
 
 export const ProductDetails = () => {
   const { id } = useParams();
-  const product = getProductById();
+  const product = getProductById(id);
   return (
     <main>
       <img src="https://via.placeholder.com/960x240" alt="" />
